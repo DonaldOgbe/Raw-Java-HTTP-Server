@@ -31,9 +31,12 @@ public class ClientHandler implements Runnable {
                 String path = requestLine.split(" ")[1];
                 String method = requestLine.split(" ")[0];
 
-                Router getRouter = new Router();
-                String response = getRouter.resolve(path).execute();
-                out.write(response);
+                if (method.equals("GET")) {
+                    Router getRouter = new Router();
+                    String response = getRouter.resolve(path).execute();
+                    out.write(response);
+                }
+
             }
 
         } catch (IOException e) {

@@ -15,7 +15,6 @@ public class Main {
                 Socket clientSocket = serverSocket.accept();
                 System.out.println("New client connected");
 
-                // Spin up a new thread for each client
                 new Thread(new ClientHandler(clientSocket)).start();
             }
 
